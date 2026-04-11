@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case 02 · 通傳產業研究 — Nancy Yeh</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F6F9;--white:#FFFFFF;--navy:#1E3A5F;--navy-mid:#2B5288;
+  --blue-light:#EDF2FA;--accent:#2A5FAC;--accent-light:#E8F0FA;
+  --gold:#C8973A;--gold-light:#FDF6E8;--ink:#1A1A2E;
+  --gray:#6B7280;--gray-light:#ECEEF2;--border:#DDE2EA;
+  --shadow:0 4px 32px rgba(30,58,95,0.08);--shadow-sm:0 2px 12px rgba(30,58,95,0.06);
+  --teal:#2A9D8F;--teal-light:#E6F5F3;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;}
+
+.container{max-width:1080px;margin:0 auto;padding:0 48px;}
+.section{padding:88px 0;}
+.section-white{background:var(--white);}
+.section-navy{background:var(--navy);}
+.section-light{background:var(--blue-light);}
+.section-gold{background:var(--gold-light);}
+
+.label{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);font-weight:500;display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+.label::after{content:'';width:40px;height:1.5px;background:var(--accent);opacity:.4;}
+.label-gold{color:var(--gold);}.label-gold::after{background:var(--gold);}
+.label-white{color:rgba(255,255,255,.6);}.label-white::after{background:rgba(255,255,255,.3);}
+
+.title{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);color:var(--navy);font-weight:400;line-height:1.25;margin-bottom:16px;}
+.title-white{color:#fff;}
+.body-text{font-size:15px;color:var(--gray);line-height:1.9;}
+.body-text strong{color:var(--navy);font-weight:500;}
+.divider{width:40px;height:2px;background:var(--accent);margin:24px 0 32px;}
+
+/* NAV */
+.navbar{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:100;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;}
+.navbar-brand{font-family:'Playfair Display',serif;font-size:17px;color:var(--navy);}
+.navbar-brand span{color:#C8973A;font-style:italic;}
+.navbar-links{display:flex;gap:24px;}
+.navbar-links a{font-size:12px;color:var(--gray);text-decoration:none;letter-spacing:.04em;transition:color .2s;}
+.navbar-links a:hover,.navbar-links a.active{color:var(--navy);}
+
+/* HERO */
+.hero{background:var(--navy);padding:80px 0 0;overflow:hidden;}
+.hero-inner{max-width:1080px;margin:0 auto;padding:0 48px;display:grid;grid-template-columns:1fr 360px;gap:64px;align-items:start;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(200,151,58,.15);color:var(--gold);font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:28px;}
+.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(30px,4vw,50px);color:#fff;font-weight:400;line-height:1.18;margin-bottom:24px;}
+.hero-h1 em{color:var(--gold);font-style:italic;}
+.hero-lead{font-size:15px;color:rgba(255,255,255,.65);line-height:1.85;max-width:480px;margin-bottom:32px;}
+.hero-lead strong{color:#fff;}
+.hero-meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px;}
+.hero-chip{background:rgba(255,255,255,.1);color:rgba(255,255,255,.85);font-size:12px;padding:6px 14px;border-radius:6px;}
+
+/* ROLE BADGE */
+.role-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,151,58,.2);border:1px solid rgba(200,151,58,.4);border-radius:8px;padding:12px 18px;margin-top:8px;}
+.role-badge-icon{font-size:18px;}
+.role-badge-text{font-size:13px;color:var(--gold);font-weight:500;}
+.role-badge-sub{font-size:12px;color:rgba(255,255,255,.5);margin-top:2px;}
+
+/* REPORT VISUAL */
+.report-visual{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:14px;}
+.report-header{display:flex;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.1);}
+.report-icon{width:40px;height:40px;background:var(--gold);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;}
+.report-title-t{font-size:13px;font-weight:500;color:#fff;}
+.report-title-s{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px;}
+.report-stat-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.report-stat{background:rgba(255,255,255,.06);border-radius:8px;padding:14px 16px;text-align:center;}
+.report-stat-num{font-family:'Playfair Display',serif;font-size:32px;color:var(--gold);line-height:1;margin-bottom:4px;}
+.report-stat-label{font-size:10px;color:rgba(255,255,255,.5);line-height:1.4;}
+.report-tag-row{display:flex;flex-wrap:wrap;gap:6px;}
+.report-tag{background:rgba(42,95,172,.3);color:#9AB8E8;font-size:10px;padding:4px 10px;border-radius:10px;}
+
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.1);margin-top:56px;}
+.stat-cell{background:rgba(255,255,255,.04);padding:32px 24px;text-align:center;}
+.stat-num{font-family:'Playfair Display',serif;font-size:40px;color:var(--gold);line-height:1;margin-bottom:6px;}
+.stat-num span{font-size:20px;color:rgba(255,255,255,.5);}
+.stat-label{font-size:12px;color:rgba(255,255,255,.45);line-height:1.5;}
+
+/* LAYOUTS */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+
+/* CONTRIBUTION */
+.contribution-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:24px;}
+.contribution-item{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;background:var(--white);border-radius:10px;box-shadow:var(--shadow-sm);}
+.contribution-icon{font-size:20px;flex-shrink:0;margin-top:2px;}
+.contribution-text{font-size:14px;color:var(--navy);line-height:1.7;}
+.contribution-text strong{font-weight:500;}
+.contribution-text span{display:block;font-size:12px;color:var(--gray);margin-top:3px;}
+
+/* PROCESS */
+.timeline-flow{margin-top:48px;position:relative;}
+.timeline-flow::before{content:'';position:absolute;left:32px;top:20px;bottom:20px;width:2px;background:linear-gradient(to bottom,var(--accent),var(--gold));}
+.tl-item{display:grid;grid-template-columns:80px 1fr;gap:24px;margin-bottom:28px;position:relative;}
+.tl-circle{width:64px;height:64px;border-radius:50%;background:var(--white);border:2px solid var(--accent);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);z-index:1;}
+.tl-circle-label{font-size:9px;color:var(--accent);letter-spacing:.05em;font-weight:500;}
+.tl-circle-dur{font-size:11px;color:var(--navy);font-weight:600;margin-top:2px;}
+.tl-content{background:var(--white);border-radius:12px;padding:22px 24px;box-shadow:var(--shadow-sm);}
+.tl-content h4{font-size:14px;font-weight:500;color:var(--navy);margin-bottom:8px;}
+.tl-content p{font-size:13px;color:var(--gray);line-height:1.75;}
+.tl-tag{display:inline-block;margin-top:10px;background:var(--accent-light);color:var(--accent);font-size:10px;padding:3px 10px;border-radius:10px;font-weight:500;}
+
+/* CHALLENGES */
+.challenge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;}
+.challenge-card{background:var(--white);border-radius:12px;padding:24px 20px;box-shadow:var(--shadow-sm);border-top:3px solid var(--accent);}
+.challenge-card-icon{font-size:24px;margin-bottom:12px;}
+.challenge-card-t{font-size:13px;font-weight:500;color:var(--navy);margin-bottom:8px;}
+.challenge-card-b{font-size:13px;color:var(--gray);line-height:1.7;}
+
+/* FINDINGS TABLE */
+.findings-table{width:100%;border-collapse:collapse;margin-top:40px;background:var(--white);border-radius:12px;overflow:hidden;box-shadow:var(--shadow-sm);}
+.findings-table th{background:var(--navy);color:rgba(255,255,255,.8);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:16px 20px;text-align:left;}
+.findings-table td{padding:16px 20px;font-size:13px;color:var(--gray);line-height:1.75;border-bottom:1px solid var(--gray-light);vertical-align:top;}
+.findings-table tr:last-child td{border-bottom:none;}
+.findings-table td:first-child{color:var(--navy);font-weight:500;width:180px;}
+.findings-table tr:hover td{background:var(--blue-light);}
+
+/* RECO CARDS */
+.reco-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px;}
+.reco-card{background:var(--white);border-radius:12px;padding:28px 24px;box-shadow:var(--shadow-sm);}
+.reco-card-head{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.reco-card-icon{font-size:22px;}
+.reco-card-title{font-size:14px;font-weight:500;color:var(--navy);}
+.reco-card-body{font-size:13px;color:var(--gray);line-height:1.8;}
+.reco-card-body li{padding-left:16px;position:relative;margin-bottom:8px;}
+.reco-card-body li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:11px;}
+
+/* SKILLS HIGHLIGHT */
+.skills-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;}
+.skill-box{background:var(--white);border-radius:12px;padding:24px;box-shadow:var(--shadow-sm);text-align:center;}
+.skill-box-icon{font-size:32px;margin-bottom:12px;}
+.skill-box-t{font-size:13px;font-weight:500;color:var(--navy);margin-bottom:6px;}
+.skill-box-b{font-size:12px;color:var(--gray);line-height:1.65;}
+.skill-tag{display:inline-block;margin-top:10px;background:var(--accent-light);color:var(--accent);font-size:10px;padding:3px 10px;border-radius:10px;}
+
+/* IMPACT */
+.impact-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:40px;}
+.impact-box{background:rgba(255,255,255,.06);padding:28px 20px;text-align:center;}
+.impact-num{font-family:'Playfair Display',serif;font-size:44px;color:var(--gold);line-height:1;margin-bottom:6px;}
+.impact-num span{font-size:22px;}
+.impact-desc{font-size:12px;color:rgba(255,255,255,.55);line-height:1.6;}
+
+/* DIFF vs INSTACARE */
+.diff-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px;}
+.diff-card{border-radius:12px;padding:28px 24px;}
+.diff-card.left{background:var(--accent-light);border:1.5px solid rgba(42,95,172,.2);}
+.diff-card.right{background:var(--gold-light);border:1.5px solid rgba(200,151,58,.25);}
+.diff-card h4{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:14px;letter-spacing:.03em;}
+.diff-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.diff-list li{font-size:13px;color:var(--gray);padding-left:18px;position:relative;line-height:1.7;}
+.diff-list li::before{content:'●';position:absolute;left:0;font-size:8px;top:4px;}
+.diff-card.left .diff-list li::before{color:var(--accent);}
+.diff-card.right .diff-list li::before{color:var(--gold);}
+
+/* REFLECTION */
+.r-cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+.r-col h3{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);font-weight:400;margin-bottom:18px;}
+.r-list{list-style:none;display:flex;flex-direction:column;gap:14px;}
+.r-list li{font-size:14px;color:var(--gray);padding-left:20px;position:relative;line-height:1.8;}
+.r-list li::before{content:'';position:absolute;left:0;top:8px;width:7px;height:7px;border:1.5px solid var(--accent);border-radius:50%;}
+
+/* FEEDBACK */
+.feedback-box{background:var(--navy);border-radius:14px;padding:32px 36px;margin-top:40px;position:relative;overflow:hidden;}
+.feedback-box::before{content:'"';font-family:'Playfair Display',serif;font-size:140px;color:rgba(255,255,255,.05);position:absolute;top:-20px;left:16px;line-height:1;}
+.feedback-text{font-family:'Playfair Display',serif;font-size:20px;color:#fff;font-style:italic;line-height:1.6;margin-bottom:14px;position:relative;z-index:1;}
+.feedback-source{font-size:12px;color:rgba(255,255,255,.45);letter-spacing:.05em;}
+
+/* FOOTER */
+.footer{background:var(--navy);padding:44px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+.footer-brand{font-family:'Playfair Display',serif;font-size:17px;color:#fff;}
+.footer-brand span{color:var(--gold);font-style:italic;}
+.footer-nav-links{display:flex;gap:24px;}
+.footer-nav-links a{font-size:13px;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s;}
+.footer-nav-links a:hover{color:var(--gold);}
+.arrow-line{display:inline-block;width:36px;height:1px;background:currentColor;position:relative;vertical-align:middle;margin-left:8px;}
+.arrow-line::after{content:'';position:absolute;right:-1px;top:-4px;border:4px solid transparent;border-left-color:currentColor;}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-brand">Nancy <span>Yeh</span> · Portfolio</div>
+  <div class="navbar-links">
+    <a href="index.html">← 回首頁</a>
+    <a href="instacare_case_study_v4.html">01 instacare</a>
+    <a href="#" class="active">02 通傳研究</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Case 02 · 政府委託研究 · 2025</div>
+      <h1 class="hero-h1">
+        政府與民眾<br>
+        <em>要的不一樣？</em>
+      </h1>
+      <p class="hero-lead">
+        受政府委託執行年度通傳產業市場調查，
+        同時進行<strong>產業面統計分析</strong>與<strong>消費面民眾問卷調查</strong>，
+        協助政府掌握通傳市場發展現況與趨勢。
+      </p>
+      <div class="hero-meta-row">
+        <div class="hero-chip">👤 專案負責人（Project Lead）</div>
+        <div class="hero-chip">🏛️ 委託單位：政府機關</div>
+        <div class="hero-chip">📅 2025年</div>
+        <div class="hero-chip">🔬 面訪調查・焦點團體訪談</div>
+      </div>
+      <div class="role-badge">
+        <div class="role-badge-icon">🏆</div>
+        <div>
+          <div class="role-badge-text">本案擔任專案負責人</div>
+          <div class="role-badge-sub">主管回饋：有效率達成專案目標、溝通協調能力強；業主回饋：連續2年獲委託單位續案及正面評價</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REPORT VISUAL -->
+    <div style="padding-top:16px;">
+      <div class="report-visual">
+        <div class="report-header">
+          <div class="report-icon">📋</div>
+          <div>
+            <div class="report-title-t">114年通訊傳播市場報告</div>
+            <div class="report-title-s">政府機關 · 2025</div>
+          </div>
+        </div>
+        <div class="report-stat-row">
+          <div class="report-stat">
+            <div class="report-stat-num">1,100</div>
+            <div class="report-stat-label">民眾面訪<br>有效樣本數</div>
+          </div>
+          <div class="report-stat">
+            <div class="report-stat-num">2</div>
+            <div class="report-stat-label">場專家<br>焦點團體座談</div>
+          </div>
+        </div>
+        <div class="report-tag-row">
+          <div class="report-tag">電信市場</div>
+          <div class="report-tag">OTT TV</div>
+          <div class="report-tag">AI 監理</div>
+          <div class="report-tag">社群平台</div>
+          <div class="report-tag">媒體素養</div>
+          <div class="report-tag">假訊息</div>
+        </div>
+        <div style="font-size:11px;color:rgba(255,255,255,.35);padding-top:4px;">
+          產出報告：commsurvey.ncc.gov.tw
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-cell"><div class="stat-num">1,100</div><div class="stat-label">面訪民眾有效樣本</div></div>
+    <div class="stat-cell"><div class="stat-num">2<span>場</span></div><div class="stat-label">通傳產學專家焦點團體座談</div></div>
+    <div class="stat-cell"><div class="stat-num">10<span>個月</span></div><div class="stat-label">問卷設計至報告產出全流程</div></div>
+    <div class="stat-cell"><div class="stat-num">3<span>方</span></div><div class="stat-label">跨單位協調：政府・調查・網站廠商</div></div>
+  </div>
+</div>
+
+<!-- MY ROLE -->
+<section class="section section-white">
+  <div class="container">
+    <div class="label">01 — 我的角色與貢獻</div>
+    <div class="two-col">
+      <div>
+        <h2 class="title">這個案子，我負責的不只是研究</h2>
+        <div class="divider"></div>
+        <p class="body-text">
+          這是我首次以<strong>專案負責人</strong>身份主導政府委託的大型研究案。
+          工作範疇橫跨研究設計、跨單位溝通、品質管控、報告撰寫，
+          是一個需要同時具備研究深度與專案管理能力的角色。
+        </p>
+        <p class="body-text" style="margin-top:14px;">
+          這個案例最能展示的，是我在<strong>高度結構化、多方利害關係人環境下</strong>，
+          獨立完成從研究設計到正式報告的全流程能力。
+        </p>
+      </div>
+      <ul class="contribution-list">
+        <li class="contribution-item">
+          <div class="contribution-icon">📚</div>
+          <div class="contribution-text">
+            <strong>文獻研究與產業分析</strong>
+            <span>搜尋國內外通傳產業趨勢報告、了解各國政策與立法走向，作為問卷設計的知識基礎</span>
+          </div>
+        </li>
+        <li class="contribution-item">
+          <div class="contribution-icon">📝</div>
+          <div class="contribution-text">
+            <strong>問卷設計與題項優化</strong>
+            <span>主導設計民眾調查問卷，進行題項邏輯檢驗與語意優化，確保題目對一般民眾的可讀性</span>
+          </div>
+        </li>
+        <li class="contribution-item">
+          <div class="contribution-icon">🔄</div>
+          <div class="contribution-text">
+            <strong>跨單位溝通協調</strong>
+            <span>作為政府委託方、調查執行廠商、網站廠商之間的窗口，協調時程與確認交付標準</span>
+          </div>
+        </li>
+        <li class="contribution-item">
+          <div class="contribution-icon">🔍</div>
+          <div class="contribution-text">
+            <strong>問卷品質監控與資料確認</strong>
+            <span>檢核調查資料品質，即時處理異常樣本與訪員問題，確保最終資料正確性</span>
+          </div>
+        </li>
+        <li class="contribution-item">
+          <div class="contribution-icon">📊</div>
+          <div class="contribution-text">
+            <strong>分析報告撰寫</strong>
+            <span>整合量化調查數據與焦點團體質化資料，撰寫政策建議分析報告</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section section-navy">
+  <div class="container">
+    <div class="label label-white">02 — 研究流程</div>
+    <h2 class="title title-white">10個月、五個階段的完整研究週期</h2>
+    <div class="timeline-flow">
+      <div class="tl-item">
+        <div class="tl-circle"><div class="tl-circle-label">PHASE 1</div><div class="tl-circle-dur">1–2月</div></div>
+        <div class="tl-content">
+          <h4>問卷設計</h4>
+          <p>文獻及桌面研究、產業報告彙整，設計問卷，反覆進行題項語意確認與邏輯檢驗。確保涵蓋電信、OTT、AI、社群平台、詐騙等核心議題。</p>
+          <div class="tl-tag">文獻研究・問卷設計</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-circle" style="border-color:var(--gold);"><div class="tl-circle-label" style="color:var(--gold);">PHASE 2</div><div class="tl-circle-dur">1–2月</div></div>
+        <div class="tl-content">
+          <h4>前測調查</h4>
+          <p>驗證問卷題目可讀性與填答、邏輯流暢度，依據前測結果進行最終修訂正式調查題目。</p>
+          <div class="tl-tag" style="background:var(--gold-light);color:var(--gold);">小規模調查、題項優化</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-circle"><div class="tl-circle-label">PHASE 3</div><div class="tl-circle-dur">1–2月</div></div>
+        <div class="tl-content">
+          <h4>正式面訪調查</h4>
+          <p>委託調查公司執行，以地理分層抽樣方式抽取鄉鎮市區，訪員至街訪地點以一問一答方式面訪 1,100 位民眾。我負責控管資料品質、即時處理問題。</p>
+          <div class="tl-tag">地理分層抽樣・面訪調查</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-circle" style="border-color:var(--gold);"><div class="tl-circle-label" style="color:var(--gold);">PHASE 4</div><div class="tl-circle-dur">2週</div></div>
+        <div class="tl-content">
+          <h4>2場專家焦點團體座談</h4>
+          <p>以通訊傳播產學專家為對象，根據前述量化調查結果深入探討背後意涵、產業現況與未來趨勢。質化資料補充量化數據的脈絡解釋。</p>
+          <div class="tl-tag" style="background:var(--gold-light);color:var(--gold);">焦點團體訪談・專家座談</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-circle"><div class="tl-circle-label">PHASE 5</div><div class="tl-circle-dur">3個月</div></div>
+        <div class="tl-content">
+          <h4>調查報告產出</h4>
+          <p>深入研析國內外政策趨勢、整合量化與質化資料，撰寫完整分析報告，包含產業現況、民眾使用行為趨勢，以及政策建議。報告公開發表於網站。</p>
+          <div class="tl-tag">資料整合・政策報告撰寫</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH CHALLENGES -->
+<section class="section section-white">
+  <div class="container">
+    <div class="label">03 — 研究目的與核心挑戰</div>
+    <h2 class="title">政府研究的三個核心目的</h2>
+    <p class="body-text" style="max-width:600px;">本案同時服務多個目的，需在有限時間與資源內兼顧不同利害關係人的資訊需求。</p>
+    <div class="challenge-grid">
+      <div class="challenge-card">
+        <div class="challenge-card-icon">📡</div>
+        <div class="challenge-card-t">掌握市場發展現況</div>
+        <div class="challenge-card-b">協助政府完整了解台灣通傳市場的產業面數據與消費面民眾行為趨勢，作為政策依據。</div>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-card-icon">🌐</div>
+        <div class="challenge-card-t">了解各國政策走向</div>
+        <div class="challenge-card-b">分析國內外通傳產業政策與立法方向，提供政府跨國比較的參考視角。</div>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-card-icon">📊</div>
+        <div class="challenge-card-t">比對供需面差異</div>
+        <div class="challenge-card-b">產業面統計與民眾消費面調查是否出現落差？差異背後代表什麼政策意義？</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY FINDINGS -->
+<section class="section section-light">
+  <div class="container">
+    <div class="label">04 — 主要研究發現</div>
+    <h2 class="title">量化調查揭示的四大趨勢</h2>
+    <p class="body-text" style="max-width:580px;margin-bottom:8px;">
+      以下為報告中的核心發現方向。本案以政策分析為主，
+      調查資料為政府公開報告，詳細數據請參閱官網。
+    </p>
+    <table class="findings-table">
+      <thead>
+        <tr>
+          <th>研究面向</th>
+          <th>主要發現</th>
+          <th>政策意涵</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>電信市場競爭</td>
+          <td>民眾對電信業者的服務品質滿意度普遍，但對費率透明度仍有疑慮</td>
+          <td>需持續監督業者服務品質與定價公平性，保持良性競爭環境</td>
+        </tr>
+        <tr>
+          <td>AI 應用與監理</td>
+          <td>AI 廣泛應用已成為現實，但現有規範仍以指導原則為主，缺乏落地細節</td>
+          <td>需跨部會聯手研擬共識，並將在地化因素納入管制規劃</td>
+        </tr>
+        <tr>
+          <td>OTT TV 發展</td>
+          <td>境外 OTT 平台市佔持續擴大，本土業者能見度相對偏低</td>
+          <td>需確立清晰規範，並透過扶植措施提升本土內容產業競爭力</td>
+        </tr>
+        <tr>
+          <td>社群平台與假訊息</td>
+          <td>民眾對個資外洩與假訊息的擔憂程度高，但辨別能力仍有提升空間</td>
+          <td>應提升產業自律強度，並投入更多資源推動全民媒體素養教育</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- RECOMMENDATIONS -->
+<section class="section section-white">
+  <div class="container">
+    <div class="label">05 — 政策建議</div>
+    <h2 class="title">四個面向的政策建議方向</h2>
+    <p class="body-text" style="max-width:580px;margin-bottom:8px;">
+      以下建議整合量化調查結果與專家焦點團體意見，提供政府政策參考。
+    </p>
+    <div class="reco-cards">
+      <div class="reco-card">
+        <div class="reco-card-head">
+          <div class="reco-card-icon">📡</div>
+          <div class="reco-card-title">電信市場監理</div>
+        </div>
+        <ul class="reco-card-body">
+          <li>電信業者良性競爭，持續監督產業動態與服務品質</li>
+          <li>強化費率透明度要求，保障消費者知情權</li>
+        </ul>
+      </div>
+      <div class="reco-card">
+        <div class="reco-card-head">
+          <div class="reco-card-icon">🤖</div>
+          <div class="reco-card-title">AI 監理框架</div>
+        </div>
+        <ul class="reco-card-body">
+          <li>跨部會聯手合作研擬共識，現有草案以指導原則為主，需進一步落實細部規範</li>
+          <li>將在地化因素納入考量，研議台灣特有的落地管制方式</li>
+        </ul>
+      </div>
+      <div class="reco-card">
+        <div class="reco-card-head">
+          <div class="reco-card-icon">📺</div>
+          <div class="reco-card-title">OTT TV 規範</div>
+        </div>
+        <ul class="reco-card-body">
+          <li>確立 OTT TV 清晰規範，平衡境外平台管理與本土業者發展</li>
+          <li>透過扶植措施與適當監理強度提升本土業者能見度</li>
+        </ul>
+      </div>
+      <div class="reco-card">
+        <div class="reco-card-head">
+          <div class="reco-card-icon">🛡️</div>
+          <div class="reco-card-title">社群平台與媒體素養</div>
+        </div>
+        <ul class="reco-card-body">
+          <li>提升產業自律與他律強度，透過信賴管道主動釋出正確資訊</li>
+          <li>投入更多資源推動媒體素養教育，強化民眾對網路資訊的辨別能力</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS SHOWCASED -->
+<section class="section section-light">
+  <div class="container">
+    <div class="label">06 — 此案展示的核心能力</div>
+    <h2 class="title">這個案子和 instacare 不一樣的地方</h2>
+    <p class="body-text" style="max-width:580px;margin-bottom:8px;">instacare 展示的是研究思維與洞見詮釋；這個案子展示的是在複雜組織環境下的研究執行與協調能力。</p>
+    <div class="diff-row">
+      <div class="diff-card left">
+        <h4>instacare 展示的能力</h4>
+        <ul class="diff-list">
+          <li>從零定義研究問題與框架</li>
+          <li>質化研究設計與深度洞見詮釋</li>
+          <li>將研究洞見轉化為產品策略建議</li>
+          <li>小團隊領導與研究方向凝聚</li>
+        </ul>
+      </div>
+      <div class="diff-card right">
+        <h4>通傳研究額外展示的能力</h4>
+        <ul class="diff-list">
+          <li>大規模量化研究設計與品質管控（1,100份）</li>
+          <li>政府機關跨單位溝通協調</li>
+          <li>混合方法研究（量化+質化整合）</li>
+          <li>政策分析報告撰寫能力</li>
+          <li>真實委託案的交付責任與時程管理</li>
+        </ul>
+      </div>
+    </div>
+    <div class="skills-row">
+      <div class="skill-box">
+        <div class="skill-box-icon">📐</div>
+        <div class="skill-box-t">大規模問卷設計</div>
+        <div class="skill-box-b">從文獻研究到題項設計，確保涵蓋度與可讀性的平衡</div>
+        <div class="skill-tag">Quantitative Research</div>
+      </div>
+      <div class="skill-box">
+        <div class="skill-box-icon">🔗</div>
+        <div class="skill-box-t">跨單位協調</div>
+        <div class="skill-box-b">同時管理政府、調查公司、網站廠商三方的溝通與時程</div>
+        <div class="skill-tag">Stakeholder Management</div>
+      </div>
+      <div class="skill-box">
+        <div class="skill-box-icon">📋</div>
+        <div class="skill-box-t">混合方法整合</div>
+        <div class="skill-box-b">將 1,100 份量化數據與 2 場焦點團體質化資料整合進同一份報告</div>
+        <div class="skill-tag">Mixed Methods</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="section section-navy">
+  <div class="container">
+    <div class="label label-white">07 — 研究成果</div>
+    <h2 class="title title-white">這份研究的規模與影響</h2>
+    <div class="impact-row">
+      <div class="impact-box"><div class="impact-num">1,100</div><div class="impact-desc">位民眾面訪有效樣本，具全台代表性</div></div>
+      <div class="impact-box"><div class="impact-num">2<span>場</span></div><div class="impact-desc">通傳產學專家焦點團體座談</div></div>
+      <div class="impact-box"><div class="impact-num">4<span>方</span></div><div class="impact-desc">跨單位協調，獨立完成全流程交付</div></div>
+      <div class="impact-box"><div class="impact-num">公開</div><div class="impact-desc">報告正式發表於官網，供各界查閱</div></div>
+    </div>
+
+    <div class="feedback-box">
+      <div class="feedback-text">「有效率達成專案目標、溝通協調能力強。」</div>
+      <div class="feedback-source">— 老闆及主管回饋</div>
+    </div>
+  </div>
+</section>
+
+<!-- REFLECTION -->
+<section class="section section-white">
+  <div class="container">
+    <div class="label">08 — 研究反思</div>
+    <h2 class="title">從這個案子學到最多的事</h2>
+    <div class="divider"></div>
+    <div class="r-cols">
+      <div class="r-col">
+        <h3>這次學到的事</h3>
+        <ul class="r-list">
+          <li>政府研究的「使用者」是政策制定者，研究建議必須同時考量可行性與政策面向，而非純粹學術導向</li>
+          <li>大規模調查的品質管控，遠比設計問卷更費時——資料檢核及正確性是確保研究可信度的關鍵</li>
+          <li>跨單位協調最大的挑戰不是技術，而是對齊不同單位對「完成」的定義與標準</li>
+        </ul>
+      </div>
+      <div class="r-col">
+        <h3>希望加強的地方</h3>
+        <ul class="r-list">
+          <li>量化報告呈現了「是什麼」，但質化部分還有更多「為什麼」值得深挖：焦點團體的洞見可以更完整地融入報告</li>
+          <li>希望有機會對報告使用者（政府決策者）做一次使用者研究，了解他們如何閱讀與應用這份報告</li>
+          <li>未來若再做類似案子，想更早介入研究設計的議題框架，而非僅在既有框架內優化題項</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  <div class="footer-brand">Nancy <span>Yeh</span> · UX Portfolio</div>
+  <div class="footer-nav-links">
+    <a href="instacare_case_study_v4.html">← 上一個：instacare</a>
+    <a href="index.html">回首頁 →<span class="arrow-line"></span></a>
+  </div>
+</div>
+
+</body>
+</html>
